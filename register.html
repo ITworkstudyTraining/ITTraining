@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - IT Training Portal</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/script.js"></script>
+</head>
+<body>
+    <header>
+        <h1>IT Training Portal</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <h2>Register</h2>
+        <form id="registerForm" action="#" method="POST">
+            <label for="reg-username">Username:</label>
+            <input type="text" id="reg-username" name="username" required>
+            
+            <label for="reg-email">Email:</label>
+            <input type="email" id="reg-email" name="email" required>
+            
+            <label for="reg-password">Password:</label>
+            <input type="password" id="reg-password" name="password" required>
+            
+            <label for="confirm-password">Confirm Password:</label>
+            <input type="password" id="confirm-password" name="confirm-password" required>
+            
+            <button type="submit" class="btn">Register</button>
+            <p id="registerError" style="color: red; display: none;">All fields are required, and passwords must match.</p>
+        </form>
+        <p>Already have an account? <a href="login.html">Login here</a></p>
+    </section>
+    <footer>
+        <p>&copy; 2025 IT Department Training Program</p>
+    </footer>
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            let username = document.getElementById('reg-username').value.trim();
+            let email = document.getElementById('reg-email').value.trim();
+            let password = document.getElementById('reg-password').value.trim();
+            let confirmPassword = document.getElementById('confirm-password').value.trim();
+            let registerError = document.getElementById('registerError');
+            
+            if (username === "" || email === "" || password === "" || confirmPassword === "" || password !== confirmPassword) {
+                event.preventDefault();
+                registerError.style.display = 'block';
+            } else {
+                registerError.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
